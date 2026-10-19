@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: trace-workpaper-studio
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: DATA_DIR
+        value: /app/storage
+      - key: ACCESS_CODE
+        generateValue: true
+    disk:
+      name: trace-workspace
+      mountPath: /app/storage
+      sizeGB: 1
